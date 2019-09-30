@@ -237,7 +237,9 @@ def after_last_added(clippings, last_added):
 
 
 def parse_clipping_added(clipping_added):
-    return datetime.strptime(clipping_added, '%A, %B %d, %Y %I:%M:%S %p')
+    # TODO: Figure out the locale of timestamp somehow. For now just replace the original pattern
+    # with one which works with my personal Kindle.
+    return datetime.strptime(clipping_added, '%A, %d %B %Y %I:%M:%S')
 
 
 def last_added_datetime(config):
